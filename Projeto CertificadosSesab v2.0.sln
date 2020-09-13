@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CertificadosSesab", "CertificadosSesab\", "{E9AA3F66-5686-4641-81DD-C2C1AD17BF8F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56874"
+		Debug.AspNetCompiler.PhysicalPath = "CertificadosSesab\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56874\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56874"
+		Release.AspNetCompiler.PhysicalPath = "CertificadosSesab\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56874\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "56874"
+		SlnRelativePath = "CertificadosSesab\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificadosSESAB.OR", "CertificadosSESAB.OR\CertificadosSESAB.OR.csproj", "{085D4A71-D6D7-4157-9262-54FCCE6BF4E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificadosSESAB.Interface", "CertificadosSESAB.Interface\CertificadosSESAB.Interface.csproj", "{7B200D13-39E6-4DD1-94A7-E635FBEA539D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificadosSESAB.DAO", "CertificadosSESAB.DAO\CertificadosSESAB.DAO.csproj", "{E6FE2F19-98FC-4BE2-A1C8-763A52DD3907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificadosSESAB.BO", "CertificadosSESAB.BO\CertificadosSESAB.BO.csproj", "{E53D21EA-2553-4F2B-86B6-0D53CDAA016F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificadosSESAB.API", "CertificadosSESAB.API\CertificadosSESAB.API.csproj", "{38DD6004-1A97-48C4-BD18-B7C543BD948E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9AA3F66-5686-4641-81DD-C2C1AD17BF8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9AA3F66-5686-4641-81DD-C2C1AD17BF8F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9AA3F66-5686-4641-81DD-C2C1AD17BF8F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{085D4A71-D6D7-4157-9262-54FCCE6BF4E2}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{085D4A71-D6D7-4157-9262-54FCCE6BF4E2}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{085D4A71-D6D7-4157-9262-54FCCE6BF4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{085D4A71-D6D7-4157-9262-54FCCE6BF4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B200D13-39E6-4DD1-94A7-E635FBEA539D}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{7B200D13-39E6-4DD1-94A7-E635FBEA539D}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{7B200D13-39E6-4DD1-94A7-E635FBEA539D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B200D13-39E6-4DD1-94A7-E635FBEA539D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6FE2F19-98FC-4BE2-A1C8-763A52DD3907}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{E6FE2F19-98FC-4BE2-A1C8-763A52DD3907}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{E6FE2F19-98FC-4BE2-A1C8-763A52DD3907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6FE2F19-98FC-4BE2-A1C8-763A52DD3907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E53D21EA-2553-4F2B-86B6-0D53CDAA016F}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{E53D21EA-2553-4F2B-86B6-0D53CDAA016F}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{E53D21EA-2553-4F2B-86B6-0D53CDAA016F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E53D21EA-2553-4F2B-86B6-0D53CDAA016F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38DD6004-1A97-48C4-BD18-B7C543BD948E}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{38DD6004-1A97-48C4-BD18-B7C543BD948E}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{38DD6004-1A97-48C4-BD18-B7C543BD948E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38DD6004-1A97-48C4-BD18-B7C543BD948E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D135C4B5-8511-4D2C-A25B-F83874C3B4C4}
+	EndGlobalSection
+EndGlobal
