@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="CertificadosSESAB.OR" namespace="CertificadosSESAB.OR" default-lazy="false">
+	<class name="CertificadosSESAB.OR.Historico,CertificadosSESAB.OR" table="HISTORICO">
+
+		<id name="IdHistorico" column="ID_HISTORICO" type="Int64" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<many-to-one name="IdEventoParticipante" column="ID_EVENTO_PARTICIPANTE" class="EventoParticipante" not-null="true"  />
+		<property column="DATA_HORA" type="DateTime" name="DataHora" not-null="true" />
+		
+	</class>
+</hibernate-mapping>

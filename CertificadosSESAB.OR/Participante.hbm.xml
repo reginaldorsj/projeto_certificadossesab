@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="CertificadosSESAB.OR" namespace="CertificadosSESAB.OR" default-lazy="false">
+	<class name="CertificadosSESAB.OR.Participante,CertificadosSESAB.OR" table="PARTICIPANTE">
+
+		<id name="IdParticipante" column="ID_PARTICIPANTE" type="Int64" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property column="NOME" type="String" name="Nome" not-null="true" length="100" />
+		<property column="CPF" type="String" name="Cpf" not-null="true" length="11" />
+		<property column="EMAIL" type="String" name="Email" length="100" />
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="CertificadosSESAB.OR" namespace="CertificadosSESAB.OR" default-lazy="false">
+	<class name="CertificadosSESAB.OR.Usuario,CertificadosSESAB.OR" table="USUARIO">
+
+		<id name="IdUsuario" column="ID_USUARIO" type="Int64" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<many-to-one name="IdUnidade" column="ID_UNIDADE" class="Unidade" not-null="true"  />
+		<property column="NOME" type="String" name="Nome" not-null="true" length="100" />
+		<property column="LOGIN" type="String" name="Login" not-null="true" length="50" />
+		<property column="SENHA" type="String" name="Senha" not-null="true" length="50" />
+		<property column="E_MAIL" type="String" name="EMail" not-null="true" length="100" />
+		
+	</class>
+</hibernate-mapping>

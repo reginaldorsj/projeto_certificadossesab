@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="CertificadosSESAB.OR" namespace="CertificadosSESAB.OR" default-lazy="false">
+	<class name="CertificadosSESAB.OR.Unidade,CertificadosSESAB.OR" table="UNIDADE">
+
+		<id name="IdUnidade" column="ID_UNIDADE" type="Int64" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property column="DESCRICAO" type="String" name="Descricao" not-null="true" length="100" />
+		<property column="ATIVO" type="Boolean" name="Ativo" not-null="true" />
+		
+	</class>
+</hibernate-mapping>

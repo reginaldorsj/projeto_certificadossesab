@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="CertificadosSESAB.OR" namespace="CertificadosSESAB.OR" default-lazy="false">
+	<class name="CertificadosSESAB.OR.Evento,CertificadosSESAB.OR" table="EVENTO">
+
+		<id name="IdEvento" column="ID_EVENTO" type="Int64" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<many-to-one name="IdUnidade" column="ID_UNIDADE" class="Unidade" not-null="true"  />
+		<property column="NOME" type="String" name="Nome" not-null="true" length="100" />
+		<property column="ARQUIVO_CERTIFICADO" type="String" name="ArquivoCertificado" not-null="true" length="100" />
+		<property column="X" type="Int32" name="X" not-null="true" />
+		<property column="Y" type="Int32" name="Y" not-null="true" />
+		<property column="DATA_LIBERACAO_DOCUMENTO" type="DateTime" name="DataLiberacaoDocumento" not-null="true" />
+		
+	</class>
+</hibernate-mapping>
