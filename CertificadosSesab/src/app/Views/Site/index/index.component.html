@@ -1,0 +1,31 @@
+<h2>Sistema para Emissão de Certificados</h2>
+<p>Para emissão do seu certificado, preencha os campos abaixo e clique em &quot;Gerar Documento&quot;. Para visualisar o documento, é necessário ter instalado o Adobe Reader. Você pode conseguí-lo, clicando na imagem abaixo.</p>
+<p>
+  <a href="http://get.adobe.com/br/reader/" target="_blank"><img src="../../../../assets/images/get_adobe_reader.jpg" alt="" /></a>
+</p>
+
+<form #indexForm="ngForm" (ngSubmit)="gerar()">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-12">
+      <label for="unidade">Estabelecimento</label>
+      <p-dropdown inputId="unidade" name="unidade" [showClear]="true" [options]="unidades" placeholder="Selecione" [(ngModel)]="selectedUnidade" (onChange)="carregaEventos()" #Unidade="ngModel" required></p-dropdown>
+      <span *ngIf="Unidade.invalid" style="font-size:larger; color:red;">Selecione o estabelecimento.</span>
+    </div>
+    <div class="p-field p-col-12 p-md-12">
+      <label for="evento">Evento</label>
+      <p-dropdown inputId="evento" name="evento" [showClear]="true" [options]="eventos" placeholder="Selecione" [(ngModel)]="selectedEvento" #Evento="ngModel" required></p-dropdown>
+      <span *ngIf="Evento.invalid" style="font-size:larger; color:red;">Selecione o evento.</span>
+    </div>
+    <div class="p-field p-col-12 p-md-2">
+      <label for="cpf">CPF</label>
+      <p-inputMask name="cpf" id="cpf" #Cpf="ngModel" mask="99999999999" [(ngModel)]="cpf" placeholder="99999999999" required></p-inputMask>
+      <span *ngIf="Cpf.invalid" style="font-size:larger; color:red;">Informe o CPF.</span>
+    </div>
+  </div>
+  <p style="text-align:left;">
+    <button pButton type="submit" [disabled]="indexForm.form.invalid || carregando==true" icon="pi pi-save" label="Gerar Certificado" class="ui-button-raised ui-button-rounded" style="margin-right: .5em"></button>
+    <i *ngIf="carregando" class="pi pi-spin pi-spinner" style="font-size: 1rem;margin-bottom:10px;"></i>
+  </p>
+</form>
+
+<p-toast position="top-center" key="tc"></p-toast>

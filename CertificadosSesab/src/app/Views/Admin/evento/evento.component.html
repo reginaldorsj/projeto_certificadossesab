@@ -1,0 +1,83 @@
+<h3>Cadastro de Evento e Certificado</h3>
+<br />
+<div class="card">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-col">
+    </div>
+    <div class="p-col">
+      <button pButton type="button" label="Incluir" class="ui-button-raised ui-button-rounded" (click)="incluir()"></button>
+    </div>
+    <div class="p-col">
+      <button pButton type="button" label="Localizar" class="ui-button-raised ui-button-rounded" (click)="localizar()"></button>
+    </div>
+    <div class="p-col">
+    </div>
+  </div>
+</div>
+<br />
+<div *ngIf="view=='editar'">
+  <form #eventoForm="ngForm" (ngSubmit)="gravar()">
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-2">
+        <label for="id">ID</label>
+        <input id="id" type="text" pInputText readonly="readonly" style=" background-color: #DCDCDC;" name="id" [(ngModel)]='evento.IdEvento'>
+      </div>
+      <div class="p-field p-col-12 p-md-7">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" #Nome="ngModel" type="text" [(ngModel)]='evento.Nome' pInputText required maxlength="100">
+        <span *ngIf="Nome.invalid" style="font-size:larger; color:red;">Informe o nome do evento.</span>
+      </div>
+      <div class="p-field p-col-12 p-md-3">
+        <label for="dataLiberacao">Data Liberação</label><br />
+        <app-date-picker-mask [stringDate]="stringDateLiberacao" (dataEnviada)="recebeDataLiberacao($event)"></app-date-picker-mask>
+      </div>
+
+      <div class="p-field p-col-12 p-md-8">
+        <label for="arquivoCertificado">Arquivo Certificado {{evento.ArquivoCertificado ? '(Atual: '+evento.ArquivoCertificado+')':''}}</label><br />
+        <input id="arquivoCertificado" name="arquivoCertificado" #ArquivoCertificado="ngModel" [(ngModel)]="arquivo" type="file" accept=".pdf" [uploader]="uploader" pInputText ng2FileSelect />
+      </div>
+      <div class="p-field p-col-12 p-md-2">
+        <label for="posX">Pos. X</label><br />
+        <p-inputNumber name="posX" #PosX="ngModel" [(ngModel)]="evento.X" mode="decimal" [showButtons]="true" inputId="posX" [min]="0" [max]="1000" required></p-inputNumber>
+        <span *ngIf="PosX.invalid" style="font-size:larger; color:red;">Inform X.</span>
+      </div>
+      <div class="p-field p-col-12 p-md-2">
+        <label for="poxY">Pos. Y</label><br />
+        <p-inputNumber name="posY" #PosY="ngModel" [(ngModel)]="evento.Y" mode="decimal" [showButtons]="true" inputId="posY" [min]="0" [max]="1000" required></p-inputNumber>
+        <span *ngIf="PosY.invalid" style="font-size:larger; color:red;">Inform Y.</span>
+      </div>
+    </div>
+    <p style="text-align:center">
+      <button pButton type="submit" [disabled]="eventoForm.form.invalid" icon="pi pi-save" label="Gravar" class="ui-button-raised ui-button-rounded" style="margin-right: .5em"></button>
+      <button pButton type="button" [disabled]="!evento.IdEvento" icon="pi pi-minus" class="ui-button-raised ui-button-danger" label="Excluir" (click)="excluir()" style="margin-right: .5em"></button>
+      <button pButton type="button" [disabled]="!evento.IdEvento" icon="pi pi-desktop" class="ui-button-raised ui-button-danger" label="Preview" (click)="preview()"></button>
+    </p>
+  </form>
+</div>
+
+<div *ngIf="view=='localizar'">
+  <p-table [value]="eventos" selectionMode="single">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:3em">ID</th>
+        <th>NOME</th>
+        <th>DATA LIBERAÇÃO</th>
+        <th style="width:5em"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-evento>
+      <tr>
+        <td>{{evento.IdEvento}}</td>
+        <td>{{evento.Nome}}</td>
+        <td>{{evento.DataLiberacaoDocumento | date: 'dd/MM/yy'}}</td>
+        <td style="text-align:center;">
+          <button pButton icon="pi pi-search" (click)="select(evento)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog header="Confirmação" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-toast position="top-center" key="tc"></p-toast>
+

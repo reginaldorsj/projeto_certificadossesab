@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+
+.title-menu {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  padding-right: 90px;
+}
+
+.content-wrapper-menu {
+  margin: 0 auto;
+  font-size: 9pt;
+  font-family: 'Segoe UI', Verdana, Helvetica, Sans-Serif;
+}
+
+.menu-top {
+  height: 50px;
+  background-color: #D8D8D8;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(143,143,143,0.75);
+  -moz-box-shadow: 0px 2px 4px 0px rgba(143,143,143,0.75);
+  box-shadow: 0px 2px 4px 0px rgba(143,143,143,0.75);
+}
+
+ul#menu {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 0 0 5px;
+  padding: 10px;
+  text-align: left;
+  background-color: #D8D8D8;
+  color: #87494E;
+}
+
+  ul#menu li {
+    display: inline;
+    color: #000000;
+    list-style: none;
+    padding-left: 15px;
+  }
+
+    ul#menu li a {
+      background: none;
+      color: #000000;
+      text-decoration: none;
+    }
+
+      ul#menu li a:hover {
+        color: #FFF;
+        text-decoration: none;
+      }

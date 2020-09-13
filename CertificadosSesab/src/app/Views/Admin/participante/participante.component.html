@@ -1,0 +1,93 @@
+<h3>Cadastro de Participantes</h3>
+<br />
+<div class="card">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-col">
+    </div>
+    <div class="p-col">
+      <button pButton type="button" label="Incluir" class="ui-button-raised ui-button-rounded" (click)="incluir()"></button>
+    </div>
+    <div class="p-col">
+      <button pButton type="button" label="Localizar" class="ui-button-raised ui-button-rounded" (click)="localizar()"></button>
+    </div>
+    <div class="p-col">
+    </div>
+  </div>
+</div>
+<br />
+<div *ngIf="view=='editar'">
+  <form #participanteForm="ngForm" (ngSubmit)="gravar()">
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-2">
+        <label for="id">ID</label>
+        <input id="id" type="text" pInputText readonly="readonly" style=" background-color: #DCDCDC;" name="id" [(ngModel)]='participante.IdParticipante'>
+      </div>
+      <div class="p-field p-col-12 p-md-10">
+        <label for="evento">Evento</label>
+        <p-dropdown inputId="evento" name="evento" [showClear]="true" [options]="eventos" placeholder="Selecione" [(ngModel)]="selectedEvento" #Evento="ngModel" required></p-dropdown>
+        <span *ngIf="Evento.invalid" style="font-size:larger; color:red;">Informe o evento.</span>
+      </div>
+
+      <div class="p-field p-col-12 p-md-8">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" maxlength="100" [(ngModel)]="participante.Nome" #Nome="ngModel" pInputText required>
+        <span *ngIf="Nome.invalid" style="font-size:larger; color:red;">Informe o nome.</span>
+      </div>
+      <div class="p-field p-col-12 p-md-4">
+        <label for="cpf">CPF</label>
+        <p-inputMask name="cpf" id="cpf" #Cpf="ngModel" mask="99999999999" [(ngModel)]="participante.Cpf" placeholder="99999999999" required></p-inputMask>
+        <span *ngIf="Cpf.invalid" style="font-size:larger; color:red;">Informe o CPF.</span>
+      </div>
+
+      <div class="p-field p-col-12 p-md-8">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="text" maxlength="100" [(ngModel)]="participante.Email" #Email="ngModel" pInputText required>
+        <span *ngIf="Email.invalid" style="font-size:larger; color:red;">Informe o email.</span>
+      </div>
+    </div>
+    <p style="text-align:center">
+      <button pButton type="submit" [disabled]="participanteForm.form.invalid" icon="pi pi-save" label="Gravar" class="ui-button-raised ui-button-rounded" style="margin-right: .5em"></button>
+      <button pButton type="button" [disabled]="!participante.IdParticipante" icon="pi pi-minus" class="ui-button-raised ui-button-danger" label="Excluir" (click)="excluir()"></button>
+    </p>
+  </form>
+</div>
+<div *ngIf="view=='localizar'">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-10">
+      <label for="selecione">Selecione o Evento</label>
+      <p-dropdown inputId="selecione" name="evento" [showClear]="true" [options]="eventos" placeholder="Selecione" [(ngModel)]="selectedEvento" #Evento="ngModel" required></p-dropdown>
+    </div>
+    <div class="p-field p-col-12 p-md-2">
+      <label for="selecione">&nbsp;</label>
+      <button pButton type="button" icon="pi pi-check" class="ui-button-raised ui-button-danger" label="Pesquisar" (click)="confirmaLocalizacao()"></button>
+    </div>
+  </div>
+
+  <p-table [value]="participantes" selectionMode="single">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:3em">ID</th>
+        <th>NOME</th>
+        <th style="width:8em">CPF</th>
+        <th>EMAIL</th>
+        <th style="width:10em"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-participante>
+      <tr>
+        <td>{{participante.IdParticipante}}</td>
+        <td>{{participante.Nome}}</td>
+        <td>{{participante.Cpf}}</td>
+        <td>{{participante.Email}}</td>
+        <td style="text-align:center;">
+          <button pButton icon="pi pi-search" (click)="select(participante)" style="margin-right: .5em"></button>
+          <button pButton icon="pi pi-desktop" (click)="preview(participante)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+
+<p-confirmDialog header="Confirmação" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-toast position="top-center" key="tc"></p-toast>

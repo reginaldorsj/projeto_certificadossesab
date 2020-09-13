@@ -1,0 +1,73 @@
+<h3>Cadastro de Usuários</h3>
+<br />
+<div [hidden]="view=='browse'">
+  <form #usuarioForm="ngForm">
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-12">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" maxlength="100" [(ngModel)]="usuario.Nome" #Nome="ngModel" pInputText required>
+        <span *ngIf="Nome.invalid" style="font-size:larger; color:red;">Informe o nome do usuário.</span>
+      </div>
+      <div class="p-field p-col-12 p-md-12">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" maxlength="100" [(ngModel)]="usuario.EMail" #Email="ngModel" pInputText required>
+        <span *ngIf="Email.invalid" style="font-size:larger; color:red;">Informe o email.</span>
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="login">Login</label>
+        <input id="login" name="login" type="text" maxlength="50" [(ngModel)]="usuario.Login" #Login="ngModel" pInputText required>
+        <span *ngIf="Login.invalid" style="font-size:larger; color:red;">Informe o login.</span>
+      </div>
+      <div class="p-field p-col-12 p-md-6">
+        <label for="senha">Senha</label>
+        <input id="senha" name="senha" type="password" maxlength="50" [(ngModel)]="usuario.Senha" #Senha="ngModel" pInputText required>
+        <span *ngIf="Senha.invalid" style="font-size:larger; color:red;">Digite a senha.</span>
+      </div>
+    </div>
+    <p style="text-align:center;">
+      <button pButton type="submit" [disabled]="usuarioForm.invalid" icon="pi pi-save" class="ui-button-raised ui-button-success" label="Gravar" style="margin-right: .5em" (click)="gravar();"></button>
+      <button pButton type="reset" icon="pi pi-undo" class="ui-button-raised ui-button-danger" label="Desistir" (click)="desistir()"></button>
+    </p>
+  </form>
+</div>
+<div [hidden]="view=='insert'">
+  <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td>
+        <button pButton type="button" icon="pi pi-plus" class="ui-button-raised" label="Inserir" (click)="inserir()"></button>
+      </td>
+      <td align="right">
+        <i *ngIf="viewAtualizar" class="pi pi-spin pi-spinner" style="font-size: 1em"></i>&nbsp;
+        <button *ngIf="!viewAtualizar" pButton type="button" icon="pi pi-refresh" class="ui-button-raised" (click)="atualizar()"></button>
+      </td>
+    </tr>
+  </table>
+  <br />
+  <br />
+  <p-table [value]="usuarios">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 3em;">ID</th>
+        <th>NOME</th>
+        <th>LOGIN</th>
+        <th>EMAIL</th>
+        <th style="width:10em"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-usuario>
+      <tr>
+        <td style="text-align: center;">{{usuario.IdUsuario}}</td>
+        <td>{{usuario.Nome}}</td>
+        <td>{{usuario.Login}}</td>
+        <td>{{usuario.EMail}}</td>
+        <td>
+          <button pButton type="button" icon="pi pi-pencil" class="ui-button-info" style="margin-right: .5em" (click)="alterar(usuario)"></button>
+          <button pButton type="button" icon="pi pi-minus" class="ui-button-info" (click)="excluir(usuario)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-toast position="top-center" key="tc"></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}" header="Confirmação" icon="pi pi-exclamation-triangle"></p-confirmDialog>

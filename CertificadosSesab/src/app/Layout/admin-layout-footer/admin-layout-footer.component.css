@@ -1,0 +1,14 @@
+footer .float-left,
+footer .float-right {
+  float: none;
+}
+
+footer {
+  text-align: center;
+  height: auto;
+  padding: 10px 0;
+}
+
+  footer p {
+    margin: 0;
+  }

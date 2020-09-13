@@ -1,0 +1,25 @@
+<header class="page-header">
+  <h3>Acesso ao Cadastro de Unidades</h3>
+</header>
+<form #form="ngForm">
+  <div style="width:178px;">
+    <br />
+    <span class="p-float-label">
+      <input type="text" id="usuario" pInputText [(ngModel)]="username" name="usuario" #usuario="ngModel" required size="15" maxlength="15" />
+      <label for="usuario" style="padding-left:8px;">Usuário</label>
+    </span>
+    <br />
+    <br />
+    <span class="p-float-label">
+      <input type="password" pInputText [(ngModel)]="password" id="senha" name="senha" #senha="ngModel" required size="15" maxlength="15" />
+      <label for="senha" style="padding-left:8px;">Senha</label>
+    </span>
+    <p-progressBar [hidden]="!viewProgress" mode="indeterminate" [style]="{'height': '6px', 'width':'177px'}"></p-progressBar>
+    <p style="text-align:right;">
+      <br />
+      <button pButton class="ui-button-raised" label="Entrar" (click)="entrar()" type="submit" [disabled]="form.invalid || viewProgress==true"></button>
+    </p>
+  </div>
+</form>
+
+<p-toast position="top-center" key="tc"></p-toast>

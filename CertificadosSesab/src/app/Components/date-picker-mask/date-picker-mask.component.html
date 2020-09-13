@@ -1,0 +1,6 @@
+<p-inputMask [style]="{'width':'200px'}" inputId="myDateMask" name="myDateMask" #MyDateMask="ngModel" mask="99/99/9999" [(ngModel)]="stringDate" placeholder="99/99/9999" slotChar="dd/mm/aaaa" (onBlur)="blur()" (onInput)="input()" (onComplete)="complete()" required></p-inputMask>
+<button pButton type="button" icon="pi pi-calendar" class="p-button-raised button" (click)="mostraCalendar()"></button>
+<span *ngIf="MyDateMask.invalid" style="font-size:larger; color:red;">Inform a data.</span>
+<div *ngIf="show" style="position: absolute;z-index:1;">
+  <p-calendar id="myDatePicker" name="myDatePicker" dateFormat="dd/mm/yy" [(ngModel)]="date" (onClearClick)="clearClick()" (onSelect)="select()" [inline]="true" [locale]="br" yearRange="1800:2050" [monthNavigator]="false" [yearNavigator]="false"></p-calendar>
+</div>
